@@ -6,7 +6,7 @@ import PlayerBar from "../components/PlayerBar"
 
 export default function AlbumDetails() {
   const { id } = useParams()
-  const album = albums.find((a) => a.id === id)
+  if (!album) return <div>Album not found</div>
 
   if (!album) return <Typography>Album not found</Typography>
 

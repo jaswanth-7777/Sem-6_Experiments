@@ -1,15 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import AlbumDetails from "./pages/AlbumDetails"
+import { AppProvider } from "./context/AppContext"
+import Home from "./pages/Home.jsx"
+import AlbumDetails from "./pages/AlbumDetails.jsx"
+import Favorites from "./pages/Favorites.jsx"
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/album/:id" element={<AlbumDetails />} />
-      </Routes>
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/album/:id" element={<AlbumDetails />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   )
 }
 

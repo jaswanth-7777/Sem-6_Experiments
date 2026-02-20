@@ -3,14 +3,14 @@ const albums = [
     id: "1",
     title: "Blinding Lights",
     artist: "The Weeknd",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/09/The_Weeknd_-_Blinding_Lights.png",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
     songs: ["Blinding Lights", "In Your Eyes", "Save Your Tears"]
   },
   {
     id: "2",
     title: "Levitating",
     artist: "Dua Lipa",
-    image: "https://upload.wikimedia.org/wikipedia/en/8/8f/Dua_Lipa_-_Levitating.png",
+    image: "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2",
     songs: ["Levitating", "Physical", "Don't Start Now"]
   },
   {

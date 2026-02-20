@@ -11,9 +11,9 @@ export default function Sidebar() {
     }}>
       <Typography variant="h5" mb={3}>🎧 MusicX</Typography>
       <List>
-        <ListItem button><ListItemText primary="Home" /></ListItem>
-        <ListItem button><ListItemText primary="Search" /></ListItem>
-        <ListItem button><ListItemText primary="Your Library" /></ListItem>
+        <ListItem><ListItemText primary="Home" /></ListItem>
+        <ListItem><ListItemText primary="Search" /></ListItem>
+        <ListItem><ListItemText primary="Your Library" /></ListItem>
       </List>
     </Box>
   )
