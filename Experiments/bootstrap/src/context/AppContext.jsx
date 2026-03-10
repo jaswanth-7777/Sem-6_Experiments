@@ -1,7 +1,24 @@
 import { createContext, useReducer } from "react"
-import { appReducer, initialState } from "../reducer/appReducer"
 
 export const AppContext = createContext()
+
+const initialState = {
+  favorites: [],
+  theme: "dark"
+}
+
+function appReducer(state, action) {
+  switch (action.type) {
+    case "ADD_FAVORITE":
+      return { ...state, favorites: [...state.favorites, action.payload] }
+    case "REMOVE_FAVORITE":
+      return { ...state, favorites: state.favorites.filter(f => f.id !== action.payload) }
+    case "CLEAR_FAVORITES":
+      return { ...state, favorites: [] }
+    default:
+      return state
+  }
+}
 
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState)

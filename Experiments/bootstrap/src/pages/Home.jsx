@@ -24,7 +24,7 @@ export default function Home() {
           }}
         >
           {albums.map((album) => (
-            <AlbumCard key={album.id} album={album} />
+            <AlbumCard key={album.id} {...album} />
           ))}
         </Box>
 
