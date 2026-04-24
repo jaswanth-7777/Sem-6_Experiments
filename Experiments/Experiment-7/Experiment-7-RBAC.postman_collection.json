@@ -1,0 +1,440 @@
+{
+  "info": {
+    "_postman_id": "experiment7-rbac",
+    "name": "Experiment-7 RBAC Testing",
+    "description": "Complete test collection for Experiment-7 Role-Based Authorization",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Public Endpoints",
+      "item": [
+        {
+          "name": "Public - Hello",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/public/hello",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "public", "hello"]
+            },
+            "description": "Access public endpoint without authentication\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "Public - Welcome",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/public/welcome",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "public", "welcome"]
+            },
+            "description": "Access public welcome endpoint\nExpected: 200 OK"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Endpoints",
+      "item": [
+        {
+          "name": "User - Profile (USER Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "user123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "user1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "profile"]
+            },
+            "description": "USER role accessing user profile\nAuth: user1 / user123\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "User - Dashboard (USER Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "user123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "user1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/dashboard",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "dashboard"]
+            },
+            "description": "USER accessing user dashboard\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "User - Settings (USER Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "user123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "user1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/settings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "settings"]
+            },
+            "description": "USER accessing user settings\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "User - Profile (NO AUTH - Should Fail)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "profile"]
+            },
+            "description": "Accessing user endpoint without authentication\nExpected: 401 Unauthorized"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin Endpoints",
+      "item": [
+        {
+          "name": "Admin - Dashboard (ADMIN Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/admin/dashboard",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "admin", "dashboard"]
+            },
+            "description": "ADMIN role accessing admin dashboard\nAuth: admin1 / admin123\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Users List (ADMIN Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/admin/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "admin", "users"]
+            },
+            "description": "ADMIN accessing user management\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Settings (ADMIN Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/admin/settings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "admin", "settings"]
+            },
+            "description": "ADMIN accessing system settings\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Reports (ADMIN Logged In)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/admin/reports",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "admin", "reports"]
+            },
+            "description": "ADMIN accessing system reports\nExpected: 200 OK"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authorization Tests",
+      "item": [
+        {
+          "name": "USER Accessing Admin Endpoint (Should Fail - 403)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "user123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "user1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/admin/dashboard",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "admin", "dashboard"]
+            },
+            "description": "USER trying to access ADMIN endpoint\nAuth: user1 / user123\nExpected: 403 Forbidden"
+          },
+          "response": []
+        },
+        {
+          "name": "ADMIN Accessing User Endpoint (Should Succeed - 200)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin123",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "profile"]
+            },
+            "description": "ADMIN accessing USER endpoint (should have access)\nAuth: admin1 / admin123\nExpected: 200 OK"
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Credentials (Wrong Password)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "wrongpassword",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "user1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "profile"]
+            },
+            "description": "Invalid credentials test\nAuth: user1 / wrongpassword\nExpected: 401 Unauthorized"
+          },
+          "response": []
+        },
+        {
+          "name": "Non-existent User",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "anypassword",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "nonexistent",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/user/profile",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user", "profile"]
+            },
+            "description": "Non-existent user test\nExpected: 401 Unauthorized"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Database Console",
+      "item": [
+        {
+          "name": "H2 Console (Open in Browser)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/h2-console",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["h2-console"]
+            },
+            "description": "H2 Database Console\nOpen this in browser to see database structure and data\nJDBC URL: jdbc:h2:mem:testdb\nUsername: sa\nPassword: (leave empty)"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.bak
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+
+# Spring Boot
+*.jar
+*.war
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# Lombok
+.apt_generated
+.apt_generated_test
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Environment
+.env
+.env.local
+local.properties
+
+# Build output
+out/
+build/
+bin/
+
+# Logs
+*.log
+logs/
