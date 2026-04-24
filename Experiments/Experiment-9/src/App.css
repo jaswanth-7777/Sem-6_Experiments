@@ -1,0 +1,36 @@
+.app-shell {
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 2rem);
+}
+
+.card-form,
+.dashboard-card {
+  width: min(520px, 100%);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.login-page {
+  padding-top: 2rem;
+}
+
+.hint-text {
+  margin-top: 1rem;
+  color: #495057;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.me-2 {
+  margin-right: 0.5rem !important;
+}
